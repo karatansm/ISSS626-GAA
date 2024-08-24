@@ -32,7 +32,7 @@
     "href": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex011.html#gis-data-in-kml-format",
     "title": "Hands-on Exercise 1.1 Geospatial Data Wrangling with R",
     "section": "GIS data in KML format",
-    "text": "GIS data in KML format\n\npreschool = st_read(\"chap01/data/geospatial/PreSchoolsLocation.kml\")\n\nReading layer `PRESCHOOLS_LOCATION' from data source \n  `C:\\karatansm\\ISSS626-GAA\\Hands-on_Ex\\Hands-on_Ex01\\chap01\\data\\geospatial\\PreSchoolsLocation.kml' \n  using driver `KML'\nSimple feature collection with 2290 features and 2 fields\nGeometry type: POINT\nDimension:     XYZ\nBounding box:  xmin: 103.6878 ymin: 1.247759 xmax: 103.9897 ymax: 1.462134\nz_range:       zmin: 0 zmax: 0\nGeodetic CRS:  WGS 84"
+    "text": "GIS data in KML format\n\npreschool = st_read(\"chap01/data/geospatial/PreSchoolsLocation.kml\")\n\nReading layer `PRESCHOOLS_LOCATION' from data source \n  `C:\\karatansm\\ISSS626-GAA\\Hands-on_Ex\\Hands-on_Ex01\\chap01\\data\\geospatial\\PreSchoolsLocation.kml' \n  using driver `KML'\nSimple feature collection with 2290 features and 2 fields\nGeometry type: POINT\nDimension:     XYZ\nBounding box:  xmin: 103.6878 ymin: 1.247759 xmax: 103.9897 ymax: 1.462134\nz_range:       zmin: 0 zmax: 0\nGeodetic CRS:  WGS 84\n\n\ntest test"
   },
   {
     "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex011.html#polyline-data-in-shapefile-form",
