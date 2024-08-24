@@ -2,7 +2,6 @@
 title: "Hands-on Exercise 1.1 Geospatial Data Wrangling with R"
 author: "Tan Sze Min Kara"
 format: html
-output: html_document
 ---
 
 # 1 Overview
@@ -35,6 +34,7 @@ cyclingpath = st_read(dsn = "chap01/data/geospatial",
 ```{r}
 preschool = st_read("chap01/data/geospatial/PreSchoolsLocation.kml")
 ```
+test test
 
 
 
