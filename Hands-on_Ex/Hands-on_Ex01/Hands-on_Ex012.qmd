@@ -4,9 +4,9 @@ author: "Tan Sze Min Kara"
 output: 
   html_document:
     theme: yeti
-date_published: "2024-08-24"
-date_modified: "`r Sys.Date()`"
 ---
+**Date Published:** 2024-08-24  
+**Date Modified:** `r Sys.Date()`
 
 # 1 Overview
 
@@ -18,6 +18,7 @@ pacman::p_load(sf, tmap, tidyverse)
 
 
 # 3 Importing the Data
+::: {.panel-tabset}
 ## Geospatial Data
 ```{r}
 mpsz <- st_read(dsn = "chap02/data/geospatial", 
@@ -30,8 +31,11 @@ mpsz
 ```{r}
 popdata <- read_csv("chap02/data/aspatial/respopagesextod2011to2020.csv")
 ```
+:::
 
 # 4 Data Preparation
+::: {.panel-tabset}
+
 ## Data Wrangling
 ```{r}
 popdata2020 <- popdata %>%
@@ -73,8 +77,10 @@ dir.create("data/rds", recursive = TRUE)
 
 write_rds(mpsz_pop2020, "chap02/data/rds/mpszpop2020.rds")
 ```
+:::
 
 # 5 Choropleth Mapping Geospatial Data Using tmap {.tabset}
+
 ## Using qtm()
 ```{r}
 tmap_mode("plot")
@@ -103,32 +109,36 @@ tm_shape(mpsz_pop2020)+
              position = c("left", "bottom"))
 ```
 
+::: {.panel-tabset}
 ## Drawing a base map
 ```{r}
 tm_shape(mpsz_pop2020) +
   tm_polygons()
 ```
 
-### Drawing a choropleth map using tm_polygons()
+## Drawing a choropleth map using tm_polygons()
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_polygons("DEPENDENCY")
 ```
 
-### Drawing a choropleth map using tm_fill() and *tm_border()
+## Drawing a choropleth map using tm_fill() and *tm_border()
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY")
 ```
 
-### Add boundary
+## Add boundary
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY") +
   tm_borders(lwd = 0.1,  alpha = 1)
 ```
+:::
 
 ## Data classification methods of tmap
+
+::: {.panel-tabset}
 ### Built-in classification methods
 ```{r}
 tm_shape(mpsz_pop2020)+
@@ -158,8 +168,10 @@ tm_shape(mpsz_pop2020)+
           breaks = c(0, 0.60, 0.70, 0.80, 0.90, 1.00)) +
   tm_borders(alpha = 0.5)
 ```
+:::
 
 ## Color Scheme
+::: {.panel-tabset}
 ### Using ColourBrewer palette
 ```{r}
 tm_shape(mpsz_pop2020)+
@@ -178,9 +190,11 @@ tm_shape(mpsz_pop2020)+
           palette = "-Greens") +
   tm_borders(alpha = 0.5)
 ```
-
+:::
 
 ## Map Layout
+::: {.panel-tabset}
+
 ### Map Legend
 ```{r}
 tm_shape(mpsz_pop2020)+
@@ -231,7 +245,7 @@ tm_shape(mpsz_pop2020)+
   tm_credits("Source: Planning Sub-zone boundary from Urban Redevelopment Authorithy (URA)\n and Population data from Department of Statistics DOS", 
              position = c("left", "bottom"))
 ```
-
+:::
 
 ## Drawing Small Multiple Choropleth Maps
 ### By assigning multiple values to at least one of the aesthetic arguments

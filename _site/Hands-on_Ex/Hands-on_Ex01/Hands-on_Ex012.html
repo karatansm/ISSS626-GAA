@@ -166,26 +166,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">1 Overview</a></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">2 Getting Started</a></li>
-  <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link" data-scroll-target="#importing-the-data">3 Importing the Data</a>
-  <ul class="collapse">
-  <li><a href="#geospatial-data" id="toc-geospatial-data" class="nav-link" data-scroll-target="#geospatial-data">Geospatial Data</a></li>
-  <li><a href="#attribute-data" id="toc-attribute-data" class="nav-link" data-scroll-target="#attribute-data">Attribute Data</a></li>
-  </ul></li>
-  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">4 Data Preparation</a>
-  <ul class="collapse">
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
-  <li><a href="#joining-the-attribute-data-and-geospatial-data" id="toc-joining-the-attribute-data-and-geospatial-data" class="nav-link" data-scroll-target="#joining-the-attribute-data-and-geospatial-data">Joining the attribute data and geospatial data</a></li>
-  </ul></li>
+  <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link" data-scroll-target="#importing-the-data">3 Importing the Data</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">4 Data Preparation</a></li>
   <li><a href="#choropleth-mapping-geospatial-data-using-tmap" id="toc-choropleth-mapping-geospatial-data-using-tmap" class="nav-link" data-scroll-target="#choropleth-mapping-geospatial-data-using-tmap">5 Choropleth Mapping Geospatial Data Using tmap</a>
   <ul class="collapse">
   <li><a href="#using-qtm" id="toc-using-qtm" class="nav-link" data-scroll-target="#using-qtm">Using qtm()</a></li>
   <li><a href="#using-tmap-elements" id="toc-using-tmap-elements" class="nav-link" data-scroll-target="#using-tmap-elements">Using tmap elements</a></li>
-  <li><a href="#drawing-a-base-map" id="toc-drawing-a-base-map" class="nav-link" data-scroll-target="#drawing-a-base-map">Drawing a base map</a>
-  <ul class="collapse">
-  <li><a href="#drawing-a-choropleth-map-using-tm_polygons" id="toc-drawing-a-choropleth-map-using-tm_polygons" class="nav-link" data-scroll-target="#drawing-a-choropleth-map-using-tm_polygons">Drawing a choropleth map using tm_polygons()</a></li>
-  <li><a href="#drawing-a-choropleth-map-using-tm_fill-and-tm_border" id="toc-drawing-a-choropleth-map-using-tm_fill-and-tm_border" class="nav-link" data-scroll-target="#drawing-a-choropleth-map-using-tm_fill-and-tm_border">Drawing a choropleth map using tm_fill() and *tm_border()</a></li>
-  <li><a href="#add-boundary" id="toc-add-boundary" class="nav-link" data-scroll-target="#add-boundary">Add boundary</a></li>
-  </ul></li>
   <li><a href="#data-classification-methods-of-tmap" id="toc-data-classification-methods-of-tmap" class="nav-link" data-scroll-target="#data-classification-methods-of-tmap">Data classification methods of tmap</a>
   <ul class="collapse">
   <li><a href="#built-in-classification-methods" id="toc-built-in-classification-methods" class="nav-link" data-scroll-target="#built-in-classification-methods">Built-in classification methods</a></li>
@@ -197,12 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#using-colourbrewer-palette" id="toc-using-colourbrewer-palette" class="nav-link" data-scroll-target="#using-colourbrewer-palette">Using ColourBrewer palette</a></li>
   <li><a href="#reverse-color-shading" id="toc-reverse-color-shading" class="nav-link" data-scroll-target="#reverse-color-shading">Reverse Color Shading</a></li>
   </ul></li>
-  <li><a href="#map-layout" id="toc-map-layout" class="nav-link" data-scroll-target="#map-layout">Map Layout</a>
-  <ul class="collapse">
-  <li><a href="#map-legend" id="toc-map-legend" class="nav-link" data-scroll-target="#map-legend">Map Legend</a></li>
-  <li><a href="#map-style" id="toc-map-style" class="nav-link" data-scroll-target="#map-style">Map Style</a></li>
-  <li><a href="#cartographic-furniture" id="toc-cartographic-furniture" class="nav-link" data-scroll-target="#cartographic-furniture">Cartographic Furniture</a></li>
-  </ul></li>
+  <li><a href="#map-layout" id="toc-map-layout" class="nav-link" data-scroll-target="#map-layout">Map Layout</a></li>
   <li><a href="#drawing-small-multiple-choropleth-maps" id="toc-drawing-small-multiple-choropleth-maps" class="nav-link" data-scroll-target="#drawing-small-multiple-choropleth-maps">Drawing Small Multiple Choropleth Maps</a>
   <ul class="collapse">
   <li><a href="#by-assigning-multiple-values-to-at-least-one-of-the-aesthetic-arguments" id="toc-by-assigning-multiple-values-to-at-least-one-of-the-aesthetic-arguments" class="nav-link" data-scroll-target="#by-assigning-multiple-values-to-at-least-one-of-the-aesthetic-arguments">By assigning multiple values to at least one of the aesthetic arguments</a></li>
@@ -243,6 +224,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><strong>Date Published:</strong> 2024-08-24<br>
+<strong>Date Modified:</strong> 2024-08-24</p>
 <section id="overview" class="level1">
 <h1>1 Overview</h1>
 </section>
@@ -254,8 +237,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="importing-the-data" class="level1">
 <h1>3 Importing the Data</h1>
-<section id="geospatial-data" class="level2">
-<h2 class="anchored" data-anchor-id="geospatial-data">Geospatial Data</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Geospatial Data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Attribute Data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mpsz <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"chap02/data/geospatial"</span>, </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">layer =</span> <span class="st">"MP14_SUBZONE_WEB_PL"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -312,9 +297,8 @@ First 10 features:
 10 30104.18   3454.239   631644.3 MULTIPOLYGON (((24472.11 29...</code></pre>
 </div>
 </div>
-</section>
-<section id="attribute-data" class="level2">
-<h2 class="anchored" data-anchor-id="attribute-data">Attribute Data</h2>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>popdata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"chap02/data/aspatial/respopagesextod2011to2020.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -328,12 +312,16 @@ dbl (2): Pop, Time
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-</section>
+</div>
+</div>
+</div>
 </section>
 <section id="data-preparation" class="level1">
 <h1>4 Data Preparation</h1>
-<section id="data-wrangling" class="level2">
-<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Data Wrangling</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Joining the attribute data and geospatial data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>popdata2020 <span class="ot">&lt;-</span> popdata <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">==</span> <span class="dv">2020</span>) <span class="sc">%&gt;%</span></span>
@@ -358,9 +346,8 @@ dbl (2): Pop, Time
 `.groups` argument.</code></pre>
 </div>
 </div>
-</section>
-<section id="joining-the-attribute-data-and-geospatial-data" class="level2">
-<h2 class="anchored" data-anchor-id="joining-the-attribute-data-and-geospatial-data">Joining the attribute data and geospatial data</h2>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>popdata2020 <span class="ot">&lt;-</span> popdata2020 <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="at">.vars =</span> <span class="fu">vars</span>(PA, SZ), </span>
@@ -379,7 +366,9 @@ dbl (2): Pop, Time
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(mpsz_pop2020, <span class="st">"chap02/data/rds/mpszpop2020.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
+</div>
+</div>
+</div>
 </section>
 <section id="choropleth-mapping-geospatial-data-using-tmap" class="level1 tabset">
 <h1 class="tabset">5 Choropleth Mapping Geospatial Data Using tmap</h1>
@@ -429,9 +418,10 @@ dbl (2): Pop, Time
 </div>
 </div>
 </div>
-</section>
-<section id="drawing-a-base-map" class="level2">
-<h2 class="anchored" data-anchor-id="drawing-a-base-map">Drawing a base map</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Drawing a base map</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(mpsz_pop2020) <span class="sc">+</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -486,6 +476,9 @@ dbl (2): Pop, Time
 </div>
 </div>
 </section>
+</div>
+</div>
+</div>
 </section>
 <section id="data-classification-methods-of-tmap" class="level2">
 <h2 class="anchored" data-anchor-id="data-classification-methods-of-tmap">Data classification methods of tmap</h2>
@@ -590,8 +583,10 @@ dbl (2): Pop, Time
 </section>
 <section id="map-layout" class="level2">
 <h2 class="anchored" data-anchor-id="map-layout">Map Layout</h2>
-<section id="map-legend" class="level3">
-<h3 class="anchored" data-anchor-id="map-legend">Map Legend</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Map Legend</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Map Style</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Cartographic Furniture</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(mpsz_pop2020)<span class="sc">+</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"DEPENDENCY"</span>, </span>
@@ -617,9 +612,8 @@ dbl (2): Pop, Time
 </div>
 </div>
 </div>
-</section>
-<section id="map-style" class="level3">
-<h3 class="anchored" data-anchor-id="map-style">Map Style</h3>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(mpsz_pop2020)<span class="sc">+</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"DEPENDENCY"</span>, </span>
@@ -641,9 +635,8 @@ dbl (2): Pop, Time
 </div>
 </div>
 </div>
-</section>
-<section id="cartographic-furniture" class="level3">
-<h3 class="anchored" data-anchor-id="cartographic-furniture">Cartographic Furniture</h3>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(mpsz_pop2020)<span class="sc">+</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"DEPENDENCY"</span>, </span>
@@ -670,7 +663,9 @@ dbl (2): Pop, Time
 </div>
 </div>
 </div>
-</section>
+</div>
+</div>
+</div>
 </section>
 <section id="drawing-small-multiple-choropleth-maps" class="level2">
 <h2 class="anchored" data-anchor-id="drawing-small-multiple-choropleth-maps">Drawing Small Multiple Choropleth Maps</h2>

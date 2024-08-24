@@ -1,74 +1,108 @@
 ---
 title: "Hands-on Exercise 1.1 Geospatial Data Wrangling with R"
 author: "Tan Sze Min Kara"
-output: html_document
+output: 
+  html_document:
+    theme: yeti
 ---
+
+**Date Published:** 2024-08-24  
+**Date Modified:** `r Sys.Date()`
 
 # 1 Overview
 
 # 2 Getting Started
 
 The code chunk below is used to install and load sf and tidyverse packages into the R environment.
+
 ```{r}
 pacman::p_load(sf, tidyverse)
 ```
 
-# 3 Importing the Data {.tabset}
+# 3 Importing the Data 
+
+::: {.panel-tabset}
+
 ## Polygon Data in Shapefile Format
+
 ```{r}
 mpsz = st_read(dsn = "chap01/data/geospatial", 
                   layer = "MP14_SUBZONE_WEB_PL")
 ```
+
 ## Polyline Data in Shapefile Form
+
 ```{r}
 cyclingpath = st_read(dsn = "chap01/data/geospatial", 
                          layer = "CyclingPathGazette")
 ```
+
 ## GIS data in KML format
+
 ```{r}
 preschool = st_read("chap01/data/geospatial/PreSchoolsLocation.kml")
 ```
-# 4 Checking the Content of A Simple Feature Data Frame {.tabset}
+:::
+
+# 4 Checking the Content of A Simple Feature Data Frame 
+
+::: {.panel-tabset}
 
 ## st_geometry()
+
 ```{r}
 st_geometry(mpsz)
 ```
 
 ## glimpse()
+
 ```{r}
 glimpse(mpsz)
 ```
 
 ## head()
+
 ```{r}
 head(mpsz, n=5)  
 ```
+:::
 
 # 5 Plotting the Geospatial Data
+
+::: {.panel-tabset}
+
 ## Plotting all features
+
 ```{r}
 plot(mpsz, max.plot = 15)
 ```
 
 ## Plotting Only the Geometric Shapes
+
 ```{r}
 plot(st_geometry(mpsz))
 ```
 
 ## Plotting using a specific attribute
+
 ```{r}
 plot(mpsz["PLN_AREA_N"])
 ```
+:::
 
 # 6 Working with Projection {.tabset}
+
 ## Assigning EPSG code to a simple feature data frame
+::: {.panel-tabset}
+
 ### Default Code
+
 ```{r}
 st_crs(mpsz)
 ```
 
 ### Corrected Code
+
 ```{r}
 mpsz3414 <- st_set_crs(mpsz, 3414)
 
@@ -76,53 +110,76 @@ st_crs(mpsz3414)
 ```
 
 ## Transforming the projection of preschool from wgs84 to svy21.
+
 ```{r}
 preschool3414 <- st_transform(preschool, 
                               crs = 3414)
 st_geometry(preschool3414)
 ```
+:::
 
 # 7 Importing and Converting An Aspatial Data
+
 ## Importing the aspatial data
 
 ```{r}
 listings <- read_csv("chap01/data/aspatial/listings.csv")
-
+```
+```{r}
 list(listings) 
 ```
 
 ## Creating a simple feature data frame from an aspatial data frame
+
 ```{r}
 listings_sf <- st_as_sf(listings, 
                        coords = c("longitude", "latitude"),
-                       crs=4326) %>%
-  st_transform(crs = 3414)
+                       crs=4326) %>% st_transform(crs = 3414)
+```
 
+```{r}
 glimpse(listings_sf)
 ```
 
 # 8 Geoprocessing with sf package
+
+::: {.panel-tabset}
 ## Buffering
+
 ```{r}
 buffer_cycling <- st_buffer(cyclingpath, 
                                dist=5, nQuadSegs = 30)
+```
 
+```{r}
 buffer_cycling$AREA <- st_area(buffer_cycling)
+```
 
+```{r}
 sum(buffer_cycling$AREA)
 ```
 
+
 ## Point-in-polygon count
+
 ```{r}
 mpsz3414$`PreSch Count`<- lengths(st_intersects(mpsz3414, preschool3414))
-
-summary(mpsz3414$`PreSch Count`)
-
-top_n(mpsz3414, 1, `PreSch Count`)
 ```
 
-# 9  Exploratory Data Analysis (EDA)
+```{r}
+summary(mpsz3414$`PreSch Count`)
+```
+
+```{r}
+top_n(mpsz3414, 1, `PreSch Count`)
+```
+:::
+
+# 9 Exploratory Data Analysis (EDA)
+
+::: {.panel-tabset}
 ## Histogram hist()
+
 ```{r}
 mpsz3414$Area <- mpsz3414 %>%   st_area()
 
@@ -145,7 +202,7 @@ ggplot(data=mpsz3414,
       y = "Frequency")
 ```
 
-### Scatterplot ggplot()
+## Scatterplot ggplot()
 ```{r}
 ggplot(data=mpsz3414, 
        aes(y = `PreSch Count`, 
@@ -158,3 +215,4 @@ ggplot(data=mpsz3414,
       x = "Pre-school density (per km sq)",
       y = "Pre-school count")
 ```
+::: 
