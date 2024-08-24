@@ -1,0 +1,40 @@
+---
+title: "Hands-on Exercise 1.1 Geospatial Data Wrangling with R"
+author: "Tan Sze Min Kara"
+format: html
+output: html_document
+---
+
+# 1 Overview
+
+# 2 Getting Started
+
+The code chunk below is used to install and load sf and tidyverse packages into the R environment.
+```{r}
+pacman::p_load(sf, tidyverse)
+```
+
+# 3 Importing the Data {.tabset}
+
+## Polygon Data in Shapefile Format
+
+```{r}
+mpsz = st_read(dsn = "chap01/data/geospatial", 
+                  layer = "MP14_SUBZONE_WEB_PL")
+```
+
+## Polyline Data in Shapefile Form
+
+```{r}
+cyclingpath = st_read(dsn = "chap01/data/geospatial", 
+                         layer = "CyclingPathGazette")
+```
+
+## GIS data in KML format
+
+```{r}
+preschool = st_read("chap01/data/geospatial/PreSchoolsLocation.kml")
+```
+
+
+
