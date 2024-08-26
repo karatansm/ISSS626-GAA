@@ -36,11 +36,9 @@ mpsz14_kml = st_write(mpsz14_shp,
 ### Master Plan 2019
 #### Shape File
 ```{r}
-mpsz19_shp = st_read("data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaGEOJSON.geojson")
-
-#mpsz19_shp = st_read(dsn = "data/geospatial/", 
-#                     layer="MPSZ-2019") %>% 
-#            st_transform(crs=3414)
+mpsz19_shp = st_read(dsn = "data/geospatial/", 
+                     layer="MPSZ-2019") %>% 
+            st_transform(crs=3414)
 ```
 
 #### KML File
@@ -60,20 +58,18 @@ popdata = read.csv("data/aspatial/respopagesextod2023.csv")
 :::
 
 # 4 Data Processing
-
-
 ```{r}
-popdata2023 <- popdata %>%
-  mutate(YOUNG = rowSums(.[3:6])
-         +rowSums(.[14])) %>%
-mutate(`ECONOMY ACTIVE` = rowSums(.[7:13])+
-rowSums(.[15]))%>%
-mutate(`AGED`=rowSums(.[16:21])) %>%
-mutate(`TOTAL`=rowSums(.[3:21])) %>%  
-mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)
-/`ECONOMY ACTIVE`) %>%
-  select(`PA`, `SZ`, `YOUNG`, 
-       `ECONOMY ACTIVE`, `AGED`, 
-       `TOTAL`, `DEPENDENCY`)
+#popdata2023 <- popdata %>%
+#  mutate(YOUNG = rowSums(.[3:6])
+#         +rowSums(.[14])) %>%
+#mutate(`ECONOMY ACTIVE` = rowSums(.[7:13])+
+#rowSums(.[15]))%>%
+#mutate(`AGED`=rowSums(.[16:21])) %>%
+#mutate(`TOTAL`=rowSums(.[3:21])) %>%  
+#mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)
+#/`ECONOMY ACTIVE`) %>%
+#  select(`PA`, `SZ`, `YOUNG`, 
+#       `ECONOMY ACTIVE`, `AGED`, 
+#      `TOTAL`, `DEPENDENCY`)
 ```
 

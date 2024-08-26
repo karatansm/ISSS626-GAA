@@ -131,5 +131,12 @@
     "title": "Hands-on Exercise 1.1 Geospatial Data Wrangling with R",
     "section": "Importing the aspatial data",
     "text": "Importing the aspatial data"
+  },
+  {
+    "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#population-data",
+    "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html#population-data",
+    "title": "In-class Exercise 1",
+    "section": "Population Data",
+    "text": "Population Data\n\npopdata = read.csv(\"data/aspatial/respopagesextod2023.csv\")"
   }
 ]

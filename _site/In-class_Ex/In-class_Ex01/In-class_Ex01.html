@@ -179,6 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">1 Overview</a></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">2 Getting Started</a></li>
   <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link" data-scroll-target="#importing-the-data">3 Importing the Data</a></li>
+  <li><a href="#data-processing" id="toc-data-processing" class="nav-link" data-scroll-target="#data-processing">4 Data Processing</a></li>
   </ul>
 </nav>
     </div>
@@ -273,27 +274,25 @@ Writing 323 features with 15 fields and geometry type Multi Polygon.</code></pre
 <section id="shape-file-1" class="level4">
 <h4 class="anchored" data-anchor-id="shape-file-1">Shape File</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mpsz19_shp <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaGEOJSON.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mpsz19_shp <span class="ot">=</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"data/geospatial/"</span>, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">layer=</span><span class="st">"MPSZ-2019"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">st_transform</span>(<span class="at">crs=</span><span class="dv">3414</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Reading layer `MasterPlan2019SubzoneBoundaryNoSeaGEOJSON' from data source 
-  `C:\karatansm\ISSS626-GAA\In-class_Ex\In-class_Ex01\data\geospatial\MasterPlan2019SubzoneBoundaryNoSeaGEOJSON.geojson' 
-  using driver `GeoJSON'
-Simple feature collection with 332 features and 2 fields
+<pre><code>Reading layer `MPSZ-2019' from data source 
+  `C:\karatansm\ISSS626-GAA\In-class_Ex\In-class_Ex01\data\geospatial' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 332 features and 6 fields
 Geometry type: MULTIPOLYGON
-Dimension:     XY, XYZ
+Dimension:     XY
 Bounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775
-z_range:       zmin: 0 zmax: 0
 Geodetic CRS:  WGS 84</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#mpsz19_shp = st_read(dsn = "data/geospatial/", </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#                     layer="MPSZ-2019") %&gt;% </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#            st_transform(crs=3414)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="kml-file-1" class="level4">
 <h4 class="anchored" data-anchor-id="kml-file-1">KML File</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mpsz19_kml <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaKML.kml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mpsz19_kml <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaKML.kml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `URA_MP19_SUBZONE_NO_SEA_PL' from data source 
   `C:\karatansm\ISSS626-GAA\In-class_Ex\In-class_Ex01\data\geospatial\MasterPlan2019SubzoneBoundaryNoSeaKML.kml' 
@@ -309,13 +308,10 @@ Geodetic CRS:  WGS 84</code></pre>
 </section>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<section id="shape-file-2" class="level4">
-<h4 class="anchored" data-anchor-id="shape-file-2">Shape File</h4>
-</section>
 <section id="kml-file-2" class="level4">
 <h4 class="anchored" data-anchor-id="kml-file-2">KML File</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>preschool <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/geospatial/PreSchoolsLocation.kml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>preschool <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/geospatial/PreSchoolsLocation.kml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `PRESCHOOLS_LOCATION' from data source 
   `C:\karatansm\ISSS626-GAA\In-class_Ex\In-class_Ex01\data\geospatial\PreSchoolsLocation.kml' 
@@ -329,8 +325,31 @@ Geodetic CRS:  WGS 84</code></pre>
 </div>
 </div>
 </section>
+<section id="population-data" class="level2">
+<h2 class="anchored" data-anchor-id="population-data">Population Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>popdata <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data/aspatial/respopagesextod2023.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </div>
 </div>
+</div>
+</section>
+<section id="data-processing" class="level1">
+<h1>4 Data Processing</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#popdata2023 &lt;- popdata %&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(YOUNG = rowSums(.[3:6])</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#         +rowSums(.[14])) %&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#mutate(`ECONOMY ACTIVE` = rowSums(.[7:13])+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#rowSums(.[15]))%&gt;%</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#mutate(`AGED`=rowSums(.[16:21])) %&gt;%</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#mutate(`TOTAL`=rowSums(.[3:21])) %&gt;%  </span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#/`ECONOMY ACTIVE`) %&gt;%</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  select(`PA`, `SZ`, `YOUNG`, </span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#       `ECONOMY ACTIVE`, `AGED`, </span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#      `TOTAL`, `DEPENDENCY`)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
