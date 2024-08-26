@@ -50,7 +50,7 @@ mpsz19_kml = st_read("data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaKML.kml"
 ```{r}
 preschool = st_read("data/geospatial/PreSchoolsLocation.kml")
 ```
-## Population Data
+### Population Data
 ```{r}
 popdata = read.csv("data/aspatial/respopagesextod2023.csv")
 ```
