@@ -1,6 +1,18 @@
 ---
-title: "In-class Ex1"
+title: "In-class Exercise 1"
 author: "Tan Sze Min Kara"
+date: "26 Aug 2024"
+date-modified: "last-modified"
+execute: 
+  eval: true
+  echo: true
+  message: false
+  freeze: true
 ---
 
-Test Test
+# 1 Overview
+
+# 2 Getting Started
+
+
+# 3 Importing the Data

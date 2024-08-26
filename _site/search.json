@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "ISSS626-GAA",
     "section": "",
-    "text": "Welcome to Kara’s ISSS626 Geospatial Analytics and Applications Homepage. \nIn this website, you will find my coursework prepared for this course."
+    "text": "Welcome to Kara’s ISSS626 Geospatial Analytics and Applications Homepage. \nIgitn this website, you will find my coursework prepared for this course."
   },
   {
     "objectID": "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex012.html",
@@ -107,8 +107,29 @@
   {
     "objectID": "In-class_Ex/In-class_Ex01/In-class_Ex01.html",
     "href": "In-class_Ex/In-class_Ex01/In-class_Ex01.html",
-    "title": "In-class Ex1",
+    "title": "In-class Exercise 1",
     "section": "",
-    "text": "Test Test"
+    "text": "1 Overview\n\n\n2 Getting Started\n\n\n3 Importing the Data"
+  },
+  {
+    "objectID": "Template.html",
+    "href": "Template.html",
+    "title": "Hands-on Exercise 1.1 Geospatial Data Wrangling with R",
+    "section": "",
+    "text": "Date Published: 2024-08-24\nDate Modified: 2024-08-26"
+  },
+  {
+    "objectID": "Template.html#assigning-epsg-code-to-a-simple-feature-data-frame",
+    "href": "Template.html#assigning-epsg-code-to-a-simple-feature-data-frame",
+    "title": "Hands-on Exercise 1.1 Geospatial Data Wrangling with R",
+    "section": "Assigning EPSG code to a simple feature data frame",
+    "text": "Assigning EPSG code to a simple feature data frame"
+  },
+  {
+    "objectID": "Template.html#importing-the-aspatial-data",
+    "href": "Template.html#importing-the-aspatial-data",
+    "title": "Hands-on Exercise 1.1 Geospatial Data Wrangling with R",
+    "section": "Importing the aspatial data",
+    "text": "Importing the aspatial data"
   }
 ]
