@@ -5,7 +5,8 @@ output:
   html_document:
     theme: yeti
 ---
-**Date Published:** 2024-08-24  
+
+**Date Published:** 2024-08-24\
 **Date Modified:** `r Sys.Date()`
 
 # 1 Overview
@@ -16,10 +17,11 @@ output:
 pacman::p_load(sf, tmap, tidyverse)
 ```
 
-
 # 3 Importing the Data
-::: {.panel-tabset}
+
+::: panel-tabset
 ## Geospatial Data
+
 ```{r}
 mpsz <- st_read(dsn = "chap02/data/geospatial", 
                 layer = "MP14_SUBZONE_WEB_PL")
@@ -28,15 +30,17 @@ mpsz
 ```
 
 ## Attribute Data
+
 ```{r}
 popdata <- read_csv("chap02/data/aspatial/respopagesextod2011to2020.csv")
 ```
 :::
 
 # 4 Data Preparation
-::: {.panel-tabset}
 
+::: panel-tabset
 ## Data Wrangling
+
 ```{r}
 popdata2020 <- popdata %>%
   filter(Time == 2020) %>%
@@ -46,9 +50,9 @@ popdata2020 <- popdata %>%
   pivot_wider(names_from=AG, 
               values_from=POP) %>%
   mutate(YOUNG = rowSums(.[3:6])
-         +rowSums(.[12])) %>%
-mutate(`ECONOMY ACTIVE` = rowSums(.[7:11])+
-rowSums(.[13:15]))%>%
+         +rowSums(.[14])) %>%
+mutate(`ECONOMY ACTIVE` = rowSums(.[7:13])+
+rowSums(.[15]))%>%
 mutate(`AGED`=rowSums(.[16:21])) %>%
 mutate(`TOTAL`=rowSums(.[3:21])) %>%  
 mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)
@@ -59,6 +63,7 @@ mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)
 ```
 
 ## Joining the attribute data and geospatial data
+
 ```{r}
 popdata2020 <- popdata2020 %>%
   mutate_at(.vars = vars(PA, SZ), 
@@ -82,6 +87,7 @@ write_rds(mpsz_pop2020, "chap02/data/rds/mpszpop2020.rds")
 # 5 Choropleth Mapping Geospatial Data Using tmap {.tabset}
 
 ## Using qtm()
+
 ```{r}
 tmap_mode("plot")
 qtm(mpsz_pop2020, 
@@ -89,6 +95,7 @@ qtm(mpsz_pop2020,
 ```
 
 ## Using tmap elements
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY", 
@@ -109,26 +116,30 @@ tm_shape(mpsz_pop2020)+
              position = c("left", "bottom"))
 ```
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Drawing a base map
+
 ```{r}
 tm_shape(mpsz_pop2020) +
   tm_polygons()
 ```
 
 ## Drawing a choropleth map using tm_polygons()
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_polygons("DEPENDENCY")
 ```
 
-## Drawing a choropleth map using tm_fill() and *tm_border()
+## Drawing a choropleth map using tm_fill() and \*tm_border()
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY")
 ```
 
 ## Add boundary
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY") +
@@ -138,8 +149,9 @@ tm_shape(mpsz_pop2020)+
 
 ## Data classification methods of tmap
 
-::: {.panel-tabset}
+::: panel-tabset
 ### Built-in classification methods
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY",
@@ -149,6 +161,7 @@ tm_shape(mpsz_pop2020)+
 ```
 
 ### Equal Classification
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY",
@@ -158,6 +171,7 @@ tm_shape(mpsz_pop2020)+
 ```
 
 ### Using custome break
+
 ```{r}
 summary(mpsz_pop2020$DEPENDENCY)
 ```
@@ -171,8 +185,10 @@ tm_shape(mpsz_pop2020)+
 :::
 
 ## Color Scheme
-::: {.panel-tabset}
+
+::: panel-tabset
 ### Using ColourBrewer palette
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY",
@@ -183,6 +199,7 @@ tm_shape(mpsz_pop2020)+
 ```
 
 ### Reverse Color Shading
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY",
@@ -193,9 +210,10 @@ tm_shape(mpsz_pop2020)+
 :::
 
 ## Map Layout
-::: {.panel-tabset}
 
+::: panel-tabset
 ### Map Legend
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY", 
@@ -216,6 +234,7 @@ tm_shape(mpsz_pop2020)+
 ```
 
 ### Map Style
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY", 
@@ -226,6 +245,7 @@ tm_shape(mpsz_pop2020)+
 ```
 
 ### Cartographic Furniture
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY", 
@@ -248,7 +268,9 @@ tm_shape(mpsz_pop2020)+
 :::
 
 ## Drawing Small Multiple Choropleth Maps
+
 ### By assigning multiple values to at least one of the aesthetic arguments
+
 ```{r}
 tm_shape(mpsz_pop2020)+
   tm_fill(c("YOUNG", "AGED"),
@@ -260,6 +282,7 @@ tm_shape(mpsz_pop2020)+
 ```
 
 ### Assigning different colors
+
 ```{r}
 tm_shape(mpsz_pop2020)+ 
   tm_polygons(c("DEPENDENCY","AGED"),
@@ -269,6 +292,7 @@ tm_shape(mpsz_pop2020)+
 ```
 
 ### By defining a group-by variable in tm_facets()
+
 ```{r}
 tm_shape(mpsz_pop2020) +
   tm_fill("DEPENDENCY",
@@ -285,6 +309,7 @@ tm_shape(mpsz_pop2020) +
 ```
 
 ### By creating multiple stand-alone maps with tmap_arrange()
+
 ```{r}
 youngmap <- tm_shape(mpsz_pop2020)+ 
   tm_polygons("YOUNG", 
@@ -300,6 +325,7 @@ tmap_arrange(youngmap, agedmap, asp=1, ncol=2)
 ```
 
 ## Mappping Spatial Object Meeting a Selection Criterion
+
 ```{r}
 tm_shape(mpsz_pop2020[mpsz_pop2020$REGION_N=="CENTRAL REGION", ])+
   tm_fill("DEPENDENCY", 

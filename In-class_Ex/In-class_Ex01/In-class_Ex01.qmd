@@ -13,6 +13,67 @@ execute:
 # 1 Overview
 
 # 2 Getting Started
-
+```{r}
+pacman::p_load(tidyverse, sf, tmap, ggstatsplot)
+```
 
 # 3 Importing the Data
+
+::: panel-tabset
+### Master Plan 2014
+#### Shape File
+```{r}
+mpsz14_shp = st_read(dsn = "data/geospatial", 
+                  layer = "MP14_SUBZONE_WEB_PL")
+```
+
+#### KML File
+```{r}
+mpsz14_kml = st_write(mpsz14_shp,
+                      "data/geospatial/MP14_SUBZONE_WEB_PL.kml", 
+                      delete_dsn = TRUE)
+```
+### Master Plan 2019
+#### Shape File
+```{r}
+mpsz19_shp = st_read("data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaGEOJSON.geojson")
+
+#mpsz19_shp = st_read(dsn = "data/geospatial/", 
+#                     layer="MPSZ-2019") %>% 
+#            st_transform(crs=3414)
+```
+
+#### KML File
+```{r}
+mpsz19_kml = st_read("data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaKML.kml")
+```
+### Pre-Schools Location
+#### KML File
+```{r}
+preschool = st_read("data/geospatial/PreSchoolsLocation.kml")
+```
+## Population Data
+```{r}
+popdata = read.csv("data/aspatial/respopagesextod2023.csv")
+```
+
+:::
+
+# 4 Data Processing
+
+
+```{r}
+popdata2023 <- popdata %>%
+  mutate(YOUNG = rowSums(.[3:6])
+         +rowSums(.[14])) %>%
+mutate(`ECONOMY ACTIVE` = rowSums(.[7:13])+
+rowSums(.[15]))%>%
+mutate(`AGED`=rowSums(.[16:21])) %>%
+mutate(`TOTAL`=rowSums(.[3:21])) %>%  
+mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)
+/`ECONOMY ACTIVE`) %>%
+  select(`PA`, `SZ`, `YOUNG`, 
+       `ECONOMY ACTIVE`, `AGED`, 
+       `TOTAL`, `DEPENDENCY`)
+```
+
